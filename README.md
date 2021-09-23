@@ -1,24 +1,24 @@
-# qq-sign-bot-admin
+# QQSignBotAdmin
 
-## Project setup
+[点我前往相关对应代码仓库: QQSignBot](https://github.com/HuPeng333/QQSignBot)
+
+## 项目介绍
+
+该项目是基于Vue3 + [ElementPlus](https://element-plus.org/zh-CN/) 搭建的QQSignBot的后台web界面，该项目在将会在制作完毕之前，全部使用静态页面和MockJs模拟的界面。**请记住: master分支永远都会是静态页面，不会存在与后台的交互**
+
+## 运行项目
+
+### 1. 克隆代码
+
+### 2. 安装依赖
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 3. 启动项目
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
