@@ -22,7 +22,10 @@ module.exports = {
       components({
         resolvers: [ElementPlusResolver()]
       })
-    ]
+    ],
+    module: {
+      unknownContextCritical: false
+    }
   }
 }
 

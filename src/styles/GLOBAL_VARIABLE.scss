@@ -19,6 +19,7 @@ $size-lg-max: 1200px;
 // 正常各自分配
 $size-xl-max: 1920px;
 
+// 页面缩放方案
 @mixin scale-method {
     @media (max-width: $size-lg-max) {
         min-width: $size-lg-max;
@@ -28,6 +29,7 @@ $size-xl-max: 1920px;
     }
 }
 
+// 输入框样式
 @mixin input-style {
     color: $text-placeholder;
     border: 1px solid rgba(255, 0, 0, 0);
