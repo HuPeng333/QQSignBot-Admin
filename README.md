@@ -4,7 +4,9 @@
 
 ## 项目介绍
 
-该项目是基于Vue3 + [ElementPlus](https://element-plus.org/zh-CN/) 搭建的QQSignBot的后台web界面，该项目在将会在制作完毕之前，全部使用静态页面和MockJs模拟的界面。**请记住: master分支永远都会是静态页面，不会存在与后台的交互**
+该项目是基于Vue3 + [ElementPlus](https://element-plus.org/zh-CN/) 搭建的QQSignBot的后台web界面，该项目在将会在制作完毕之前，全部使用静态页面和MockJs模拟的界面。
+
+**请记住: master分支永远都会是静态页面，不会存在与后台的交互**
 
 ## 运行项目
 
