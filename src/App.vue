@@ -1,16 +1,29 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  <navigator v-if="!$route.meta['hideNav']" />
+  <side-bar v-if="!$route.meta['hideNav']" />
+  <router-view class="app-content" />
 </template>
 <script>
 import { defineComponent } from 'vue'
-export default defineComponent({})
+import Navigator from '@/components/Navigator/Navigator.vue'
+import SideBar from '@/components/SideBar/SideBar'
+export default defineComponent({
+  name: 'App',
+  components: {
+    SideBar,
+    Navigator
+  }
+})
 </script>
 
 <style lang="scss">
+.app-content {
+  margin-left: 180px;
+  margin-top: 30px;
+}
 #app {
-  font-family: 'Arial', 'Microsoft YaHei', '黑体', '宋体', sans-serif;
+  font-family: Roboto, San Francisco, 'Helvetica Neue', Helvetica, Arial, PingFangSC-Light, 'Hiragina Sans GB', 'WenQuanYi Micro Hei', 'microsoft yahei ui',
+    'microsoft yahei', sans-serif;
   @include scale-method;
 }
 </style>

@@ -160,6 +160,7 @@ export default defineComponent({
 }
 .door-login {
   margin-top: 50px;
+  z-index: 1;
 }
 .center-decoration {
   margin-top: 80px;
@@ -190,10 +191,14 @@ export default defineComponent({
   align-items: center;
   width: 100%;
   height: 100vh;
+  margin-left: 0;
+  margin-top: 0;
+  background-color: white;
 }
 .door-wave {
   position: fixed;
   @include scale-method;
   bottom: -4px;
+  z-index: 0;
 }
 </style>

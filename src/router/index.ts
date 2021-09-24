@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Door from '../pages/Door/Door.vue'
+const Index = () => import('../pages/Index/Index.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -7,7 +8,17 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Door',
     component: Door,
     meta: {
-      title: 'QQSignBotAdmin-请先登录'
+      title: 'QQSignBotAdmin-请先登录',
+      // 隐藏导航栏
+      hideNav: true
+    }
+  },
+  {
+    path: '/',
+    name: 'Index',
+    component: Index,
+    meta: {
+      title: '首页'
     }
   }
 ]
@@ -18,7 +29,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  window.document.title = to.meta.title ? <string>to.meta.title : 'QQSignBot'
+  window.document.title = to.meta.title ? <string>to.meta.title : 'QQSignBotAdmin'
   next()
 })
 

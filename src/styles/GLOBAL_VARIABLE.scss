@@ -39,3 +39,14 @@ $size-xl-max: 1920px;
         border: 1px solid $color-main;
     }
 }
+
+@font-face {
+    font-family: 'iconfont';  /* Project id 2830942 */
+    src: url('//at.alicdn.com/t/font_2830942_szs7whzeub8.woff2?t=1632476044901') format('woff2'),
+    url('//at.alicdn.com/t/font_2830942_szs7whzeub8.woff?t=1632476044901') format('woff'),
+    url('//at.alicdn.com/t/font_2830942_szs7whzeub8.ttf?t=1632476044901') format('truetype');
+}
+
+.iconfont {
+    font-family: iconfont, sans-serif;
+}
