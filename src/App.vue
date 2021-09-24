@@ -1,7 +1,7 @@
 <template>
   <navigator v-if="!$route.meta['hideNav']" />
   <side-bar v-if="!$route.meta['hideNav']" />
-  <router-view class="app-content" />
+  <router-view />
 </template>
 <script>
 import { defineComponent } from 'vue'
@@ -17,10 +17,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.app-content {
-  margin-left: 180px;
-  margin-top: 30px;
-}
 #app {
   font-family: Roboto, San Francisco, 'Helvetica Neue', Helvetica, Arial, PingFangSC-Light, 'Hiragina Sans GB', 'WenQuanYi Micro Hei', 'microsoft yahei ui',
     'microsoft yahei', sans-serif;
