@@ -8,6 +8,8 @@
 
 **请记住: master分支永远都会是静态页面，不会存在与后台的交互**
 
+本项目所有踩坑记录都会放在Notion上面: [传送门](https://zinc-mass-9cc.notion.site/QQSignBot-f00f772bdd5f4d1b984ac3d1dc7bddad)
+
 ## 运行项目
 
 ### 1. 克隆代码
