@@ -1,4 +1,4 @@
-export class MockType<T extends ServerResponse> {
+export class MockType<T> {
   public url: string | RegExp
   public method: string
   public data: unknown

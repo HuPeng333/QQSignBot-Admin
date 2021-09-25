@@ -75,7 +75,6 @@ export default defineComponent({
     //  一共的人数
     const totalCount = ref(0)
     getSign().then((resp) => {
-      console.log(resp)
       signCount.value = resp.data.signCount
       totalCount.value = resp.data.totalCount
     })
@@ -95,7 +94,7 @@ export default defineComponent({
       collectionSubmitCount.value = resp.data.submitCount
     })
     // eslint-disable-next-line no-undef
-    const finishedCollections = ref<Array<groupStatistic>>([])
+    const finishedCollections = ref<Array<GroupStatistic>>([])
     getFinishedStatistic({ groupCode: '123' }).then((resp) => {
       finishedCollections.value = resp.data
     })

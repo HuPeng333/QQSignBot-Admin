@@ -2,7 +2,7 @@ import { MockType } from '@/mock/MockType'
 import { randomInteger } from '@/mock/Random'
 
 export default [
-  new MockType<GetSignStatistic>('/sign/getSignStatistic', {
+  new MockType<ServerResponse<SignStatistic>>('/sign/getSignStatistic', {
     code: 0,
     message: 'ok',
     data: {
