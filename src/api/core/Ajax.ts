@@ -9,7 +9,7 @@ class Ajax {
    * @param param 参数
    * @param method 请求方式
    */
-  public static SendAjax<T>(url: string, param?: unknown, method?: 'GET' | 'POST'): Promise<T> {
+  public static SendAjax<T>(url: string, param?: unknown, method: 'GET' | 'POST' = 'GET'): Promise<T> {
     // 将任务入栈
     const token = MissionStackFactory.getMissionStack().addMission(url)
     return new Promise<T>((resolve, reject) => {

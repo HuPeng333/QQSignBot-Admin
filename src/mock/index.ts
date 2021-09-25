@@ -3,6 +3,7 @@
 import Mock from 'mockjs'
 import { MockType } from '@/mock/MockType'
 import SignController from '@/mock/controller/SignController.ts'
+import StatisticController from '@/mock/controller/StatisticController'
 
 /**
  * 加载控制器
@@ -15,5 +16,6 @@ const loadController = (controller: Array<MockType<ServerResponse>>) => {
 }
 
 loadController(SignController)
+loadController(StatisticController)
 
 export default Mock

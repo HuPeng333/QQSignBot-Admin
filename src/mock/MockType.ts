@@ -1,15 +1,11 @@
 export class MockType<T extends ServerResponse> {
-  public url: string
+  public url: string | RegExp
   public method: string
   public data: unknown
 
-  constructor(url: string, data?: T, method?: 'get' | 'post') {
+  constructor(url: string | RegExp, data?: T, method: 'get' | 'post' = 'get') {
     this.url = url
     this.data = data
-    if (method) {
-      this.method = method
-    } else {
-      this.method = 'get'
-    }
+    this.method = method
   }
 }
