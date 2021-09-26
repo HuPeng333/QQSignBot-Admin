@@ -42,7 +42,12 @@ interface GroupStatistic {
   submitCount: number
 }
 
+interface GroupInfo {
+  groupName: string
+  groupCode: string
+}
+
 interface UserInfo {
   level: number
-  allowedGroup: Array<string>
+  allowedGroup: Array<groupInfo>
 }

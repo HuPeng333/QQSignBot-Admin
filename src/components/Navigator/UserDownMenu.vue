@@ -35,8 +35,8 @@ export default defineComponent({
   border-radius: 8px;
   font-size: 20px;
   opacity: 1;
-  box-sizing: border-box;
   padding-top: 8px;
+  box-sizing: border-box;
   text-wrap: none;
   line-height: normal;
   background-color: white;

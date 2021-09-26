@@ -18,8 +18,6 @@ export default defineComponent({
 
 <style lang="scss">
 #app {
-  font-family: Roboto, San Francisco, 'Helvetica Neue', Helvetica, Arial, PingFangSC-Light, 'Hiragina Sans GB', 'WenQuanYi Micro Hei', 'microsoft yahei ui',
-    'microsoft yahei', sans-serif;
   @include scale-method;
 }
 </style>

@@ -1,5 +1,5 @@
 import { MockType } from '@/mock/MockType'
-import { randomInteger } from '@/mock/Random'
+import { randomInteger, randomString } from '@/mock/Random'
 
 export default [
   new MockType<ServerResponse<UserInfo>>('/user/info', {
@@ -7,7 +7,20 @@ export default [
     message: 'ok',
     data: {
       level: 3,
-      allowedGroup: [randomInteger(100, 1000000).toString(), randomInteger(100, 1000000).toString(), randomInteger(100, 1000000).toString()]
+      allowedGroup: [
+        {
+          groupName: randomString(8),
+          groupCode: randomInteger(1000, 1000000).toString()
+        },
+        {
+          groupName: randomString(8),
+          groupCode: randomInteger(1000, 1000000).toString()
+        },
+        {
+          groupName: randomString(8),
+          groupCode: randomInteger(1000, 1000000).toString()
+        }
+      ]
     }
   })
 ]
