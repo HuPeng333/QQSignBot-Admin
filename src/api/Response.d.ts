@@ -49,5 +49,5 @@ interface GroupInfo {
 
 interface UserInfo {
   level: number
-  allowedGroup: Array<groupInfo>
+  allowedGroup: Array<GroupInfo>
 }

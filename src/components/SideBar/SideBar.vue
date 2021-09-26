@@ -1,24 +1,24 @@
 <template>
   <el-scrollbar class="side-bar" view-class="side-bar-scroll">
-    <div class="side-bar-select" :style="checkSelected('/')">
+    <div class="side-bar-select bar-hover" :style="checkSelected('/')">
       <router-link to="/" class="bar-link">
         <span class="iconfont">&#xe639; </span>
         <span>首页</span>
       </router-link>
     </div>
-    <div class="side-bar-select" :style="checkSelected('/t')">
+    <div class="side-bar-select bar-hover" :style="checkSelected('/t')">
       <router-link to="/" class="bar-link">
         <span class="iconfont">&#xe624; </span>
         <span>群打卡</span>
       </router-link>
     </div>
-    <div class="side-bar-select" :style="checkSelected('/t')">
+    <div class="side-bar-select bar-hover" :style="checkSelected('/t')">
       <router-link to="/" class="bar-link">
         <span class="iconfont">&#xe618; </span>
         <span>群收集</span>
       </router-link>
     </div>
-    <div class="side-bar-select" :style="checkSelected('/t')">
+    <div class="side-bar-select bar-hover" :style="checkSelected('/t')">
       <router-link to="/" class="bar-link">
         <span class="iconfont">&#xe614; </span>
         <span>自动打卡</span>
@@ -58,6 +58,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.bar-hover {
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: #8cd5ff;
+  }
+}
 .side-bar-select {
   padding: 10px;
 }

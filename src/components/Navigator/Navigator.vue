@@ -43,7 +43,7 @@ export default defineComponent({
     // eslint-disable-next-line no-undef
     const user = store.state.user as UserState
     // 当前下拉框展示的群号
-    const curGroupCode = ref<string>('loading')
+    const curGroupCode = ref<string>('LOADING!')
     // 是否显示下拉框
     const showDownMenu = ref(false)
     // 当前登录的账户允许管理的群
@@ -51,8 +51,8 @@ export default defineComponent({
 
     // 若vuex中没有数据,则重新发送请求
     if (allowedGroup.value.length === 0) {
-      store.dispatch('initUserInfo').then(() => {
-        curGroupCode.value = allowedGroup.value[0].groupCode
+      store.dispatch('initUserInfo').then((code) => {
+        curGroupCode.value = code
       })
     } else {
       curGroupCode.value = store.state.curGroup
