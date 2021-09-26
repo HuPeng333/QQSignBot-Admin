@@ -10,7 +10,7 @@ import UserController from '@/mock/controller/UserController'
  * 加载控制器
  * @param controller 控制器
  */
-const loadController = (controller: Array<MockType<ServerResponse<unknown>>>) => {
+const loadController = (controller: Array<MockType>) => {
   controller.forEach((mockType) => {
     Mock.mock(mockType.url, mockType.method, mockType.data)
   })

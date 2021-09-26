@@ -16,3 +16,7 @@ export const randomString = (length = 10): string => {
   }
   return str.substring(0, length)
 }
+
+export const randomTimestamp = (): string => {
+  return (Date.now() - randomInteger(-100000, 100000)).toString()
+}

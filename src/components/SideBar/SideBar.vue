@@ -6,8 +6,8 @@
         <span>首页</span>
       </router-link>
     </div>
-    <div class="side-bar-select bar-hover" :style="checkSelected('/t')">
-      <router-link to="/" class="bar-link">
+    <div class="side-bar-select bar-hover" :style="checkSelected('/sign')">
+      <router-link to="/sign" class="bar-link">
         <span class="iconfont">&#xe624; </span>
         <span>群打卡</span>
       </router-link>
@@ -68,9 +68,11 @@ export default defineComponent({
   padding: 10px;
 }
 .bar-link {
-  padding: 0 10px;
-  text-decoration: none;
+  width: 100%;
+  display: block;
   font-size: 17px;
+  text-indent: 10px;
+  text-decoration: none;
   color: white;
 }
 .side-bar-scroll {
@@ -79,6 +81,7 @@ export default defineComponent({
 .side-bar {
   position: fixed;
   left: 0;
+  top: 50px;
   width: 140px;
   height: 100vh;
   padding-bottom: 20px;

@@ -2,7 +2,7 @@ import { MockType } from '@/mock/MockType'
 import { randomInteger, randomString } from '@/mock/Random'
 
 export default [
-  new MockType<ServerResponse<UserInfo>>('/user/info', {
+  new MockType('/user/info', {
     code: 0,
     message: 'ok',
     data: {

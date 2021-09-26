@@ -53,11 +53,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, toRef } from 'vue'
 import { ElDivider, ElProgress } from 'element-plus'
 import { getSign } from '@/api/controller/SignController'
 import { getAliveGroupStatistic, getFinishedStatistic } from '@/api/controller/StatisticController'
 import Note from '@/pages/Index/Note.vue'
+import { useStore } from 'vuex'
+import safetyAjax from '@/hook/safetyAjax'
 
 export default defineComponent({
   name: 'Index',
@@ -67,6 +69,7 @@ export default defineComponent({
     ElProgress
   },
   setup() {
+    const curGroup = toRef(useStore().state, 'curGroup')
     /**
      * 获取打卡情况
      */
@@ -74,10 +77,16 @@ export default defineComponent({
     const signCount = ref(0)
     //  一共的人数
     const totalCount = ref(0)
-    getSign().then((resp) => {
-      signCount.value = resp.data.signCount
-      totalCount.value = resp.data.totalCount
-    })
+
+    // 发送打卡请求,获取数据
+    const getSignStatus = () => {
+      getSign({ groupCode: curGroup.value }).then((resp) => {
+        signCount.value = resp.data.signCount
+        totalCount.value = resp.data.totalCount
+      })
+    }
+    // 判断vuex中有没有数据
+    safetyAjax(curGroup, getSignStatus)
 
     /**
      * 收集情况
@@ -88,11 +97,14 @@ export default defineComponent({
     const collectionTotal = ref(0)
     // 收集任务已经提交的数量
     const collectionSubmitCount = ref(0)
-    getAliveGroupStatistic({ groupCode: '123' }).then((resp) => {
-      collectionTitle.value = resp.data.name
-      collectionTotal.value = resp.data.totalCount
-      collectionSubmitCount.value = resp.data.submitCount
-    })
+    const getAliveGroupStatisticStatus = () => {
+      getAliveGroupStatistic({ groupCode: curGroup.value }).then((resp) => {
+        collectionTitle.value = resp.data.name
+        collectionTotal.value = resp.data.totalCount
+        collectionSubmitCount.value = resp.data.submitCount
+      })
+    }
+    safetyAjax(curGroup, getAliveGroupStatisticStatus)
     // eslint-disable-next-line no-undef
     const finishedCollections = ref<Array<GroupStatistic>>([])
     getFinishedStatistic({ groupCode: '123' }).then((resp) => {

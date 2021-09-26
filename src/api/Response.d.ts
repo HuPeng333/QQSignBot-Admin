@@ -51,3 +51,12 @@ interface UserInfo {
   level: number
   allowedGroup: Array<GroupInfo>
 }
+
+interface GroupUserInfo {
+  qq: string
+  nickName: string
+  /**
+   * 上次打卡时间(时间戳)
+   */
+  lastSign: string
+}

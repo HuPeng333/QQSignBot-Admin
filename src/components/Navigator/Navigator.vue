@@ -96,9 +96,13 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 50px;
   line-height: 40px;
+  z-index: 9999;
   background-color: $color-main;
 }
 </style>
