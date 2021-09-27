@@ -1,4 +1,5 @@
 import Type from './mutations-type'
+import { UserInfo } from '@/api/Response'
 export default {
   /**
    * 获取用户信息

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Door from '../pages/Door/Door.vue'
 const Index = () => import('../pages/Index/Index.vue')
+const Sign = () => import('../pages/Sign/Sign.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,6 +20,14 @@ const routes: Array<RouteRecordRaw> = [
     component: Index,
     meta: {
       title: '首页'
+    }
+  },
+  {
+    path: '/sign',
+    name: 'Sign',
+    component: Sign,
+    meta: {
+      title: '打卡情况'
     }
   }
 ]

@@ -1,4 +1,5 @@
 import sendAjax from '@/api/core/Ajax'
+import { GroupStatistic, ServerResponse } from '@/api/Response'
 
 type groupStatisticParam = {
   /**

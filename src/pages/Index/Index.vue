@@ -60,6 +60,7 @@ import { getAliveGroupStatistic, getFinishedStatistic } from '@/api/controller/S
 import Note from '@/pages/Index/Note.vue'
 import { useStore } from 'vuex'
 import safetyAjax from '@/hook/safetyAjax'
+import { GroupStatistic } from '@/api/Response'
 
 export default defineComponent({
   name: 'Index',
@@ -105,7 +106,6 @@ export default defineComponent({
       })
     }
     safetyAjax(curGroup, getAliveGroupStatisticStatus)
-    // eslint-disable-next-line no-undef
     const finishedCollections = ref<Array<GroupStatistic>>([])
     getFinishedStatistic({ groupCode: '123' }).then((resp) => {
       finishedCollections.value = resp.data

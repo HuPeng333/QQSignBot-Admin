@@ -1,4 +1,4 @@
-interface ServerResponse<T> {
+export interface ServerResponse<T> {
   /**
    * 响应代码,0表示请求成功
    */
@@ -16,7 +16,7 @@ interface ServerResponse<T> {
 /**
  * 获取打卡统计
  */
-interface SignStatistic {
+export interface SignStatistic {
   /**
    * 打卡人数
    */
@@ -27,7 +27,7 @@ interface SignStatistic {
   totalCount: number
 }
 
-interface GroupStatistic {
+export interface GroupStatistic {
   /**
    * 收集名称
    */
@@ -42,17 +42,17 @@ interface GroupStatistic {
   submitCount: number
 }
 
-interface GroupInfo {
+export interface GroupInfo {
   groupName: string
   groupCode: string
 }
 
-interface UserInfo {
+export interface UserInfo {
   level: number
   allowedGroup: Array<GroupInfo>
 }
 
-interface GroupUserInfo {
+export interface GroupUserInfo {
   qq: string
   nickName: string
   /**
