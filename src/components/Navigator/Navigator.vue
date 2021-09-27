@@ -102,7 +102,7 @@ export default defineComponent({
   width: 100%;
   height: 50px;
   line-height: 40px;
-  z-index: 9999;
+  z-index: 2003;
   background-color: $color-main;
 }
 </style>

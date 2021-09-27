@@ -19,11 +19,7 @@ const sendAjax = <T>(url: string, param?: unknown, method: 'GET' | 'POST' = 'GET
           cancelToken: token
         })
         .then((resp) => {
-          if (resp.data.code === 0) {
-            resolve(resp.data)
-          } else {
-            reject(resp.data)
-          }
+          resolve(resp.data)
         })
         .catch((e) => {
           reject(e)
@@ -47,11 +43,7 @@ const sendAjax = <T>(url: string, param?: unknown, method: 'GET' | 'POST' = 'GET
           cancelToken: token
         })
         .then((resp) => {
-          if (resp.data.code === 0) {
-            resolve(resp.data)
-          } else {
-            reject(resp.data)
-          }
+          resolve(resp.data)
         })
         .catch((e) => {
           reject(e)
