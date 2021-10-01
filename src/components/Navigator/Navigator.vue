@@ -24,10 +24,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRef, watch } from 'vue'
+import { defineComponent, inject, ref, toRef, watch } from 'vue'
 import UserDownMenu from '@/components/Navigator/UserDownMenu.vue'
 import { useStore } from 'vuex'
 import { ElSelect, ElOption } from 'element-plus'
+import { UserState } from '@/store/user/userModule'
 
 export default defineComponent({
   name: 'AdminNavigator',
@@ -40,7 +41,6 @@ export default defineComponent({
     // vuex
     const store = useStore()
     // 获取userState
-    // eslint-disable-next-line no-undef
     const user = store.state.user as UserState
     // 当前下拉框展示的群号
     const curGroupCode = ref<string>('LOADING!')
@@ -57,9 +57,15 @@ export default defineComponent({
     } else {
       curGroupCode.value = store.state.curGroup
     }
+    // 刷新页面
+    const flushPage = inject('flushPage')
     // 当选中的群号改变时,修改vuex中的数据
     watch(curGroupCode, () => {
       store.dispatch('setCurGroup', curGroupCode.value)
+      // 刷新页面
+      if (typeof flushPage === 'function') {
+        flushPage()
+      }
     })
     return {
       showDownMenu,

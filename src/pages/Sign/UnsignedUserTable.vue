@@ -15,7 +15,7 @@
       <el-table-column label="序号" type="index" width="100"></el-table-column>
       <el-table-column label="QQ" prop="qq"></el-table-column>
       <el-table-column label="昵称" prop="nickName"></el-table-column>
-      <el-table-column label="上次打卡时间" prop="lastSign" :formatter="timeFormat"></el-table-column>
+      <el-table-column label="上次打卡时间" prop="lastSign" :formatter="plusTableTimeFormat"></el-table-column>
     </el-table>
     <div class="sign-buttons">
       <el-button type="warning" round :disabled="selectedUnsignedUser.length === 0" @click="showTipUnsignedDialog = true">提醒打卡</el-button>
@@ -75,6 +75,7 @@ import { ElLoading, ElMessage, ElTable, ElButton, ElDialog, ElTableColumn } from
 import { getUnsignedUser, helpUsersToSign, tipUnsignedUsers } from '@/api/controller/SignController'
 import { useStore } from 'vuex'
 import safetyAjax from '@/hook/safetyAjax'
+import plusTableTimeFormat from '@/hook/plusTableTimeFormat'
 
 export default defineComponent({
   name: 'UnsignedUserTable',
@@ -191,12 +192,6 @@ export default defineComponent({
      * ===========一些通用方法===========
      *
      */
-    // 格式化日期 格式为: 月-日 时:分
-    const timeFormat = (row: number, column: number, cellValue: string) => {
-      const date = new Date(Number.parseInt(cellValue))
-      const fixZero = (num: number): string => (num < 10 ? '0' + num : num.toString())
-      return `${fixZero(date.getMonth())}-${fixZero(date.getDate())} ${fixZero(date.getHours())}:${fixZero(date.getMinutes())}`
-    }
     // 提取GroupUserInfo的QQ
     const sliceQQInGroup = (array: Array<GroupUserInfo>): Array<string> => {
       const qqArray: string[] = []
@@ -211,11 +206,11 @@ export default defineComponent({
       sendTipRequest,
       unsignedGroupUser,
       selectedUnsignedUser,
-      timeFormat,
       showTipUnsignedDialog,
       unsignedUsersTable,
       showHelpSignDialog,
-      helpSign
+      helpSign,
+      plusTableTimeFormat
     }
   }
 })

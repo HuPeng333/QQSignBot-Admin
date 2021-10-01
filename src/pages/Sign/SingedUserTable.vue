@@ -7,7 +7,7 @@
       <el-table-column label="排序" type="index" width="150"></el-table-column>
       <el-table-column label="QQ" prop="qq"></el-table-column>
       <el-table-column label="昵称" prop="nickName"></el-table-column>
-      <el-table-column label="打卡时间" prop="lastSign" :formatter="timeFormat" sortable></el-table-column>
+      <el-table-column label="打卡时间" prop="lastSign" :formatter="plusTableTimeFormat" sortable></el-table-column>
     </el-table>
   </div>
 </template>
@@ -19,6 +19,7 @@ import { GroupUserInfo } from '@/api/Response'
 import { useStore } from 'vuex'
 import { getSignedUser } from '@/api/controller/SignController'
 import safetyAjax from '@/hook/safetyAjax'
+import plusTableTimeFormat from '@/hook/plusTableTimeFormat'
 
 export default defineComponent({
   name: 'SingedUserTable',
@@ -46,15 +47,9 @@ export default defineComponent({
       })
     }
     safetyAjax(curGroup, getSignedUserFun)
-    // 格式化日期 格式为: 月-日 时:分
-    const timeFormat = (row: number, column: number, cellValue: string) => {
-      const date = new Date(Number.parseInt(cellValue))
-      const fixZero = (num: number): string => (num < 10 ? '0' + num : num.toString())
-      return `${fixZero(date.getMonth())}-${fixZero(date.getDate())} ${fixZero(date.getHours())}:${fixZero(date.getMinutes())}`
-    }
     return {
       signedGroupUser,
-      timeFormat
+      plusTableTimeFormat
     }
   }
 })

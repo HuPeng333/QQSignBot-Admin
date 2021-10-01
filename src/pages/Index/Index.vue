@@ -23,12 +23,12 @@
       <div class="index-h2-title">
         <span>收集任务进度</span>
       </div>
-      <div>
+      <div v-if="aliveStatistic">
         <div class="index-decoration">
-          <span>{{ collectionTitle }} (激活中) ({{ collectionSubmitCount }} / {{ collectionTotal }})</span>
+          <span>{{ aliveStatistic.name }} (激活中) ({{ aliveStatistic.submitCount }} / {{ aliveStatistic.totalCount }})</span>
         </div>
         <el-progress
-          :percentage="collectionTotal === 0 ? 0 : Math.round((collectionSubmitCount / collectionTotal) * 100)"
+          :percentage="aliveStatistic.totalCount === 0 ? 0 : Math.round((aliveStatistic.submitCount / aliveStatistic.totalCount) * 100)"
           :stroke-width="20"
           :text-inside="true"
         ></el-progress>
@@ -56,7 +56,7 @@
 import { defineComponent, ref, toRef } from 'vue'
 import { ElDivider, ElProgress } from 'element-plus'
 import { getSign } from '@/api/controller/SignController'
-import { getAliveGroupStatistic, getFinishedStatistic } from '@/api/controller/StatisticController'
+import { getAliveStatisticProcess, getFinishedStatisticProcess } from '@/api/controller/StatisticController'
 import Note from '@/pages/Index/Note.vue'
 import { useStore } from 'vuex'
 import safetyAjax from '@/hook/safetyAjax'
@@ -93,29 +93,21 @@ export default defineComponent({
      * 收集情况
      */
     // 收集任务标题
-    const collectionTitle = ref<string>()
-    // 收集任务需要提交的数量
-    const collectionTotal = ref(0)
-    // 收集任务已经提交的数量
-    const collectionSubmitCount = ref(0)
+    let aliveStatistic
     const getAliveGroupStatisticStatus = () => {
-      getAliveGroupStatistic({ groupCode: curGroup.value }).then((resp) => {
-        collectionTitle.value = resp.data.name
-        collectionTotal.value = resp.data.totalCount
-        collectionSubmitCount.value = resp.data.submitCount
+      getAliveStatisticProcess({ groupCode: curGroup.value }).then((resp) => {
+        aliveStatistic = resp.data
       })
     }
     safetyAjax(curGroup, getAliveGroupStatisticStatus)
     const finishedCollections = ref<Array<GroupStatistic>>([])
-    getFinishedStatistic({ groupCode: '123' }).then((resp) => {
+    getFinishedStatisticProcess({ groupCode: '123' }).then((resp) => {
       finishedCollections.value = resp.data
     })
     return {
       signCount,
       totalCount,
-      collectionTitle,
-      collectionTotal,
-      collectionSubmitCount,
+      aliveStatistic,
       finishedCollections
     }
   }

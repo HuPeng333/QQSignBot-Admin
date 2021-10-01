@@ -40,6 +40,14 @@ export interface GroupStatistic {
    * 已经提交的人数
    */
   submitCount: number
+  /**
+   * 该收集的id
+   */
+  id: number
+  /**
+   * 开始时间
+   */
+  startTime: string
 }
 
 export interface GroupInfo {
@@ -47,11 +55,17 @@ export interface GroupInfo {
   groupCode: string
 }
 
+/**
+ * 当前登录的用户信息
+ */
 export interface UserInfo {
   level: number
   allowedGroup: Array<GroupInfo>
 }
 
+/**
+ * 群成员打卡的信息
+ */
 export interface GroupUserInfo {
   qq: string
   nickName: string
@@ -59,4 +73,32 @@ export interface GroupUserInfo {
    * 上次打卡时间(时间戳)
    */
   lastSign: string
+}
+
+export interface StatisticData {
+  /**
+   * 群收集回复的内容
+   */
+  text: string
+  /**
+   * 提交的时间戳
+   */
+  submitTime: string
+  /**
+   * 提交用户的qq
+   */
+  qq: string
+}
+
+/**
+ * 群收集的详细信息
+ */
+export interface GroupStatisticInfo {
+  id: number
+  name: string
+  submittedData: Array<StatisticData>
+  /**
+   * 未提交的用户
+   */
+  uncommittedUsers: Array<GroupUserInfo>
 }

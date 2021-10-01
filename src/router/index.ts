@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Door from '../pages/Door/Door.vue'
 const Index = () => import('../pages/Index/Index.vue')
 const Sign = () => import('../pages/Sign/Sign.vue')
+const GroupStatistic = () => import('../pages/GroupStatistic/GroupStatistic.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -28,6 +29,14 @@ const routes: Array<RouteRecordRaw> = [
     component: Sign,
     meta: {
       title: '打卡情况'
+    }
+  },
+  {
+    path: '/statistic',
+    name: 'GroupStatistic',
+    component: GroupStatistic,
+    meta: {
+      title: '群收集'
     }
   }
 ]

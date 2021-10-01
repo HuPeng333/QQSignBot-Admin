@@ -16,6 +16,10 @@ const loadController = (controller: Array<MockType>) => {
   })
 }
 
+Mock.setup({
+  timeout: '500-1000'
+})
+
 loadController(SignController)
 loadController(StatisticController)
 loadController(UserController)

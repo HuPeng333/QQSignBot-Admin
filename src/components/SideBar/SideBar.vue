@@ -12,16 +12,10 @@
         <span>群打卡</span>
       </router-link>
     </div>
-    <div class="side-bar-select bar-hover" :style="checkSelected('/t')">
-      <router-link to="/" class="bar-link">
+    <div class="side-bar-select bar-hover" :style="checkSelected('/statistic')">
+      <router-link to="/statistic" class="bar-link">
         <span class="iconfont">&#xe618; </span>
         <span>群收集</span>
-      </router-link>
-    </div>
-    <div class="side-bar-select bar-hover" :style="checkSelected('/t')">
-      <router-link to="/" class="bar-link">
-        <span class="iconfont">&#xe614; </span>
-        <span>自动打卡</span>
       </router-link>
     </div>
   </el-scrollbar>

@@ -1,6 +1,7 @@
 import { getUserInfo } from '@/api/controller/UserController'
 import Type from './mutations-type'
 import { ActionContext } from 'vuex'
+import { UserState } from '@/store/user/userModule'
 export default {
   async initUserInfo(context: ActionContext<UserState, unknown>): Promise<string> {
     return new Promise((resolve) => {
